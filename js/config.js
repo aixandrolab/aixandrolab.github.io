@@ -4,7 +4,7 @@ const CONFIG = {
     EXCLUDED_REPOSITORIES: ['aixandrolab'],
 
     COUNTERS: {
-        PUBLIC_REPOS: 17,
+        PUBLIC_REPOS: 22,
         PRODUCTION_PACKAGES: 1,
         MONTHLY_DOWNLOADS: 2000,
     },
