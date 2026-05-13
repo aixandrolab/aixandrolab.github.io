@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>outputdecorator v0.1.1 - PyPI Package</title>
+    <meta name="description" content="Library for decorating strings in CLI apps.">
+
+    <link rel="canonical" href="https://aixandrolab.ru/packages/outputdecorator.html">
+    <link rel="author" href="https://github.com/aixandrolab">
+
+    <meta property="og:title" content="outputdecorator v0.1.1 - PyPI Package">
+    <meta property="og:description" content="Library for decorating strings in CLI apps.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://aixandrolab.ru/packages/outputdecorator.html">
+    <meta property="og:site_name" content="Aixandrolab">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+    <style>
+        .package-detail-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent);
+        }
+        .version-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .stat-large {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .info-item {
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .info-item:hover {
+            transform: translateY(-2px);
+            background: var(--primary);
+        }
+        .pypi-badge {
+            display: inline-block;
+            background: #3775A9;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+            text-decoration: none;
+        }
+        .pypi-badge:hover {
+            background: #2D5A8B;
+            color: white;
+        }
+        .markdown-content {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        .markdown-content pre {
+            background: var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            overflow-x: auto;
+        }
+        .markdown-content code {
+            background: var(--primary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-content h1 {
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .markdown-content h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+        }
+        .markdown-content h1:first-child,
+        .markdown-content h2:first-child,
+        .markdown-content h3:first-child {
+            margin-top: 0;
+        }
+        .markdown-content img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+        .markdown-content th {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content td {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        .markdown-content ul,
+        .markdown-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .markdown-content li {
+            margin: 0.25rem 0;
+        }
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+        .badge-placeholder {
+        display: inline-block;
+        background: linear-gradient(135deg, #2b3139 0%, #21262d 100%);
+        color: #c9d1d9;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        border: 1px solid #3d444d;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        margin: 2px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .badge-placeholder:hover {
+        background: linear-gradient(135deg, #353b43 0%, #2a2f37 100%);
+        border-color: #4a5562;
+        transform: translateY(-1px);
+        transition: all 0.2s;
+    }
+
+    .pip-install-container {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .pip-command-wrapper {
+        background: var(--secondary);
+        border: 2px solid var(--accent);
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        width: auto;
+        min-width: 300px;
+    }
+
+    .pip-command-wrapper:hover {
+        border-color: #0a58ca;
+        box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+        transform: translateY(-1px);
+    }
+
+    .pip-command-text {
+        font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+        color: #00ff9d;
+        padding: 10px 15px;
+        margin: 0;
+        background: transparent;
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        flex: 1;
+        white-space: nowrap;
+    }
+
+    .pip-copy-btn {
+        background: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 10px 20px;
+        margin: 0;
+        font-size: 1.2rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        border-left: 2px solid var(--accent-hover, #0a58ca);
+    }
+
+    .pip-copy-btn:hover {
+        background: var(--accent);
+        color: white;
+    }
+
+    .pip-copy-btn.copied {
+        background: rgba(13, 110, 253, 0.1);
+        color: white;
+        border-color: rgba(13, 110, 253, 0.1);
+    }
+
+    .pip-copy-btn.copied i {
+        animation: pop 0.3s ease;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+        .pip-command-wrapper {
+            min-width: 250px;
+        }
+
+        .pip-command-text {
+            font-size: 0.9rem;
+            padding: 8px 12px;
+        }
+
+        .pip-copy-btn {
+            padding: 8px 16px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="paper-container">
+
+            <header class="professional-header">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="main-profile-row">
+                            <div class="avatar-container">
+                                <div class="profile-avatar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h1 class="name">outputdecorator</h1>
+                                <p class="title">PyPI Package v0.1.1</p>
+
+                                <div class="badges mt-2">
+                                    <span class="version-badge">0.1.1</span>
+                                    <span class="badge bg-primary">Python</span>
+                                    
+                                </div>
+                                <div class="pip-install-container mt-3">
+                                    <div class="pip-command-wrapper">
+                                        <code class="pip-command-text">pip install outputdecorator</code>
+                                        <button class="pip-copy-btn" onclick="copyPipCommand('pip install outputdecorator', this)" title="Copy pip install command">
+                                            <i class="bi bi-clipboard"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main style="padding: 5px">
+                <nav class="mobile-navigation" id="mobileNav">
+                    <div class="mobile-nav-container">
+                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page"><i class="bi bi-house"></i></a>
+                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page"><i class="bi bi-person"></i></a>
+                        <a href="/expertise.html" class="mobile-nav-btn" aria-label="Go to Expertise page"><i class="bi bi-gear"></i></a>
+                        <a href="/applications.html" class="mobile-nav-btn" aria-label="Go to Applications page"><i class="bi bi-grid-3x3-gap-fill"></i></a>
+                        <a href="/ecosystems.html" class="mobile-nav-btn" aria-label="Go to Ecosystems page"><i class="bi bi-diagram-3"></i></a>
+                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page"><i class="bi bi-code-slash"></i></a>
+                        <a href="/packages.html" class="mobile-nav-btn active" aria-label="Go to Packages page"><i class="bi bi-box-seam"></i></a>
+                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page"><i class="bi bi-newspaper"></i></a>
+                        <a target="_blank" href="https://github.com/aixandrolab" class="mobile-nav-btn" aria-label="Go to Github @aixandrolab"><i class="bi bi-github"></i></a>
+                    </div>
+                </nav>
+                <br>
+
+                <div class="content-section">
+                    <div class="container">
+                        <div class="d-flex justify-content-between align-items-center package-detail-header">
+                            <h2 class="section-title mb-0">Package Details</h2>
+                            <a href="https://pypi.org/project/outputdecorator/" target="_blank" class="btn btn-outline-primary">
+                                <i class="bi bi-box-seam"></i> View on PyPI
+                            </a>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-info-circle"></i> Summary
+                            </h3>
+                            <p class="text-light">Library for decorating strings in CLI apps.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-file-text"></i> Description
+                            </h3>
+                            <div class="markdown-content">
+                                <h1 id="output-decorator-v011">Output Decorator <sup>v0.1.1</sup></h1>
+<p><a href="https://github.com/aixandrolab/outputdecorator/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/aixandrolab/outputdecorator" /></a><br />
+<a href="https://pypi.org/project/outputdecorator/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/outputdecorator?label=pypi%20downloads" /></a><br />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/aixandrolab/outputdecorator" /><br />
+<a href="https://pypi.org/project/outputdecorator"><img alt="PyPI" src="https://img.shields.io/pypi/v/outputdecorator" /></a><br />
+<a href="https://github.com/aixandrolab/outputdecorator/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/aixandrolab/outputdecorator" /></a><br />
+<a href="https://pypi.org/project/outputdecorator"><img alt="PyPI - Format" src="https://img.shields.io/pypi/format/outputdecorator" /></a></p>
+<hr />
+<h2 id="disclaimer">⚠️ Disclaimer</h2>
+<p><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+<p><strong>Summary:</strong> Software provided "AS IS" without warranty. You assume all risks.</p>
+<p><strong>Full legal disclaimer:</strong> See <a href="https://github.com/aixandrolab/outputdecorator/blob/master/DISCLAIMER.md">DISCLAIMER.md</a></p>
+<hr />
+<h2 id="overview">📌 Overview</h2>
+<p><strong>Output Decorator</strong> is a lightweight Python library designed to enhance CLI application output with professional text decoration. It automatically adapts to your terminal width and provides simple methods for creating visually appealing formatted output.</p>
+<hr />
+<h2 id="features">✨ Features</h2>
+<ul>
+<li>🖥️ <strong>Terminal-aware</strong> – Automatically detects and uses your terminal width</li>
+<li>🎨 <strong>Flexible decoration</strong> – Customize border symbols for any style</li>
+<li>📝 <strong>Frame formatting</strong> – Create framed text blocks with different top/bottom borders</li>
+<li>🔧 <strong>Simple API</strong> – Clean, intuitive interface with minimal learning curve</li>
+<li>⚡ <strong>Lightweight</strong> – No external dependencies beyond Python standard library</li>
+</ul>
+<hr />
+<h2 id="installation">📦 Installation</h2>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>outputdecorator
+</code></pre></div>
+
+<hr />
+<h2 id="quick-start">🚀 Quick Start</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">output_decorator</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringDecorator</span>
+
+<span class="c1"># Center text with automatic terminal width</span>
+<span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">print_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Output: ************************************ Python ***********************************</span>
+
+<span class="c1"># Get decorated string without printing</span>
+<span class="n">decorated</span> <span class="o">=</span> <span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">print_flag</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decorated</span><span class="p">)</span>  <span class="c1"># Same output as above</span>
+
+<span class="c1"># Create framed text with different border styles</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">StringDecorator</span><span class="o">.</span><span class="n">framed_decorate</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> 
+    <span class="n">top_symbol</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> 
+    <span class="n">bottom_symbol</span><span class="o">=</span><span class="s1">&#39;-&#39;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">******</span>
+<span class="sd">Python</span>
+<span class="sd">------</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
+
+<hr />
+<h2 id="api-reference">📚 API Reference</h2>
+<h3 id="stringdecoratorstring_decoratetext-symbol-print_flagtrue"><code>StringDecorator.string_decorate(text='', symbol='*', print_flag=True)</code></h3>
+<p>Creates a centered line of text padded with the specified symbol to fill the terminal width.</p>
+<p><strong>Parameters:</strong><br />
+- <code>text</code> (str) – The text to decorate (default: empty string)<br />
+- <code>symbol</code> (str) – Character used for padding (default: '*')<br />
+- <code>print_flag</code> (bool) – If True, prints directly; if False, returns the string (default: True)</p>
+<p><strong>Returns:</strong> <code>str</code> or <code>None</code> – Decorated string if <code>print_flag=False</code>, otherwise <code>None</code></p>
+<h3 id="stringdecoratorframed_decoratetext-top_symbol-bottom_symbol-"><code>StringDecorator.framed_decorate(text='', top_symbol='-', bottom_symbol='-')</code></h3>
+<p>Creates a framed text block with separate top and bottom borders.</p>
+<p><strong>Parameters:</strong><br />
+- <code>text</code> (str) – The text to frame (default: empty string)<br />
+- <code>top_symbol</code> (str) – Character for the top border (default: '-')<br />
+- <code>bottom_symbol</code> (str) – Character for the bottom border (default: '-')</p>
+<p><strong>Returns:</strong> <code>str</code> – Formatted string with top border, text, and bottom border</p>
+<h3 id="stringdecoratorterm_width"><code>StringDecorator.term_width()</code></h3>
+<p>Returns the current terminal width in columns.</p>
+<p><strong>Returns:</strong> <code>int</code> – Terminal width</p>
+<hr />
+<h2 id="use-cases">💡 Use Cases</h2>
+<ul>
+<li><strong>CLI tools</strong> – Create visually distinct section headers</li>
+<li><strong>Logging</strong> – Highlight important log entries</li>
+<li><strong>Reports</strong> – Format console output for better readability</li>
+<li><strong>Installers/Setup scripts</strong> – Create professional-looking progress indicators</li>
+<li><strong>Development tools</strong> – Debug output with clear visual separation</li>
+</ul>
+<hr />
+<h2 id="examples">🔍 Examples</h2>
+<h3 id="creating-a-banner">Creating a banner</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;WELCOME&#39;</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+<span class="c1"># =================================== WELCOME ====================================</span>
+</code></pre></div>
+
+<h3 id="empty-line-separator">Empty line separator</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="c1"># --------------------------------------------------------------------------------</span>
+</code></pre></div>
+
+<h3 id="different-frame-styles">Different frame styles</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Warning box</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">StringDecorator</span><span class="o">.</span><span class="n">framed_decorate</span><span class="p">(</span><span class="s1">&#39;⚠️  WARNING  ⚠️&#39;</span><span class="p">,</span> <span class="n">top_symbol</span><span class="o">=</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="n">bottom_symbol</span><span class="o">=</span><span class="s1">&#39;!&#39;</span><span class="p">))</span>
+
+<span class="c1"># Success message</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">StringDecorator</span><span class="o">.</span><span class="n">framed_decorate</span><span class="p">(</span><span class="s1">&#39;✓ Success!&#39;</span><span class="p">,</span> <span class="n">top_symbol</span><span class="o">=</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">bottom_symbol</span><span class="o">=</span><span class="s1">&#39;=&#39;</span><span class="p">))</span>
+</code></pre></div>
+
+<hr />
+<h2 id="contributing">🤝 Contributing</h2>
+<p>Contributions, issues, and feature requests are welcome! Feel free to check the <a href="https://github.com/aixandrolab/outputdecorator/issues">issues page</a>.</p>
+<hr />
+<h2 id="license">📄 License</h2>
+<p>This project is licensed under the terms specified in the repository. See the <a href="https://github.com/aixandrolab/outputdecorator/blob/master/LICENSE">LICENSE</a> file for details.</p>
+<hr />
+<h2 id="support">📞 Support</h2>
+<ul>
+<li><strong>Documentation</strong>: Check this README</li>
+<li><strong>Issues</strong>: <a href="https://github.com/aixandrolab/outputdecorator/issues">GitHub Issues</a></li>
+<li><strong>PyPI</strong>: <a href="https://pypi.org/project/outputdecorator/">Package Page</a></li>
+</ul>
+<hr />
+<p><em>Made with ❤️ for the Python CLI community</em></p>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="/packages.html" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-left"></i> Back to Packages
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div class="content-section">
+                <div class="container">
+                    <h2 class="section-title text-center">Connect & Collaborate</h2>
+                    <div class="text-center mb-4">
+                        <a target="_blank" href="https://github.com/aixandrolab" class="btn btn-outline-primary m-1">GitHub</a>
+                        <a target="_blank" href="https://pypi.org/user/aixandrolab/" class="btn btn-outline-primary m-1">PyPI</a>
+                        <a target="_blank" href="https://dev.to/aixandrolab" class="btn btn-outline-primary m-1">Dev.to</a>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="content-section">
+                <div class="container text-center">
+                    <footer>
+                        <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/aixandrolab">Aixandrolab</a> | <a target="_blank" class="author-link" href="https://github.com/aixandrolab/aixandrolab.github.io">v1.0.0</a></p>
+                    </footer>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/particle-background.js"></script>
+    <script src="../js/scroll-manager.js"></script>
+    <script src="../js/animation-manager.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ScrollManager !== 'undefined') {
+                new ScrollManager();
+            } else {
+                console.error('ScrollManager not found');
+            }
+        });
+    </script>
+    <script>
+        window.copyPipCommand = function(text, btn) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showPipCopyFeedback(btn);
+                }).catch(() => {
+                    fallbackPipCopy(text, btn);
+                });
+            } else {
+                fallbackPipCopy(text, btn);
+            }
+        };
+
+        function fallbackPipCopy(text, btn) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+
+            try {
+                document.execCommand('copy');
+                showPipCopyFeedback(btn);
+            } catch (err) {
+                console.error('Copy failed:', err);
+                alert('Failed to copy. Please copy manually: ' + text);
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        function showPipCopyFeedback(btn) {
+            const originalHtml = btn.innerHTML;
+            btn.innerHTML = '<i class="bi bi-check-lg"></i>';
+            btn.classList.add('copied');
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="bi bi-clipboard"></i>';
+                btn.classList.remove('copied');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

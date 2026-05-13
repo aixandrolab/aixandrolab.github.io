@@ -1,29 +1,31 @@
 const CONFIG = {
-    GITHUB_USERNAME: 'aixandrolab',
-    DEVTO_USERNAME: 'aixandrolab',
-    EXCLUDED_REPOSITORIES: ['aixandrolab'],
+    DEBUG: false,
 
-    COUNTERS: {
-        PUBLIC_REPOS: 22,
-        PRODUCTION_PACKAGES: 1,
+    PROFILE: {
+        NAME: 'Aixandrolab',
+        GITHUB_USERNAME: 'aixandrolab',
+        DEVTO_USERNAME: 'aixandrolab',
+//        ORCID: '0009-0006-3427-9611',
+        CAREER_START_YEAR: 2020
+    },
+
+    CONSTANTS: {
+        ECOSYSTEMS_COUNT: 1,
+        PROJECTS_DELIVERED: 100,
+//        TECH_ARTICLES: 0,
+        USERS_SUPPORTED: '20K+',
+        COMMITS: "2K",
+    },
+
+    PYPI_PACKAGES: [
+        'outputdecorator'
+    ],
+
+    DEFAULTS: {
+        REPOS_COUNT: 21,
+        PYPI_PACKAGES_COUNT: 1,
         MONTHLY_DOWNLOADS: 2000,
     },
 
-    SCROLL_OFFSET: 80,
-
-    PYPI_PACKAGES: [
-        'outputdecorator',
-    ],
-
-    CACHE_CONFIG: {
-        REPOSITORIES: {
-            TTL: 24 * 60 * 60 * 1000,
-            KEY: 'github_repos_cache'
-        },
-        ARTICLES: {
-            TTL: 2 * 60 * 60 * 1000,
-            KEY: 'devto_articles_cache'
-        },
-        PYPI: { TTL: 24 * 60 * 60 * 1000, KEY: 'pypi_packages_cache' }
-    },
+    EXCLUDED_REPOSITORIES: ['aixandrolab']
 };

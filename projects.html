@@ -1,0 +1,2479 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   GitHub Projects - Aixandrolab
+  </title>
+  <meta content="GitHub projects and open source contributions by Aixandrolab" name="description"/>
+  <link href="https://aixandrolab.ru/projects.html" rel="canonical"/>
+  <link href="https://github.com/aixandrolab" rel="author"/>
+  <meta content="GitHub Projects - Aixandrolab" property="og:title"/>
+  <meta content="Open source repositories and tools" property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://aixandrolab.ru/projects.html" property="og:url"/>
+  <meta content="#0d1117" name="theme-color"/>
+  <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;defs&gt;&lt;linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'&gt;&lt;stop offset='0%' stop-color='%230d6efd'/&gt;&lt;stop offset='100%' stop-color='%230b5ed7'/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/&gt;&lt;path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
+  <style>
+   .author-stats-grid {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 1rem;
+   margin: 2rem 0;
+}
+
+    .author-stat-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .author-stat-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 20px rgba(13, 110, 253, 0.1);
+    }
+
+    .author-stat-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .author-stat-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .author-stat-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .author-bio {
+      background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(13, 110, 253, 0.05) 100%);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(13, 110, 253, 0.2);
+    }
+
+    .author-bio-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .author-bio-meta {
+          display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      color: var(--text-muted);
+    }
+
+    .author-bio-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .author-bio-meta-item i {
+      color: var(--accent);
+    }
+
+    .activity-feed {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s ease;
+    }
+
+    .activity-item:last-child {
+      border-bottom: none;
+    }
+
+    .activity-item:hover {
+      background: rgba(13, 110, 253, 0.05);
+    }
+
+    .activity-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(13, 110, 253, 0.1);
+      border-radius: 8px;
+      color: var(--accent);
+    }
+
+    .activity-content {
+      flex: 1;
+    }
+
+    .activity-title {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .activity-meta {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .activity-time {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .github-calendar {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .github-calendar img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .loading {
+      opacity: 0.5;
+      pointer-events: none;
+      position: relative;
+    }
+
+    .loading::after {
+      content: "⏳ Loading...";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .author-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .author-bio-meta {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      #github-activity {
+        display: none;
+      }
+
+    }
+  </style>
+ </head>
+ <body>
+  <div class="scroll-progress">
+   <div class="scroll-progress-bar">
+   </div>
+  </div>
+  <button class="scroll-to-top" id="scrollToTop">
+   <i class="bi bi-chevron-up">
+   </i>
+  </button>
+  <div class="container">
+   <div class="paper-container">
+    <header class="professional-header">
+     <div class="container">
+      <div class="header-content">
+       <div class="main-profile-row">
+        <div class="avatar-container">
+         <div class="profile-avatar" id="profileAvatar">
+          <img alt="Avatar" src="data/images/avatar.png"/>
+         </div>
+        </div>
+        <div class="profile-info">
+         <h1 class="name" id="profileName">
+          Aixandrolab
+         </h1>
+         <p class="title text-primary">
+          GitHub Open Source Projects
+         </p>
+         <div class="profile-meta" id="profileMeta">
+          <span>
+           <i class="bi bi-calendar">
+           </i>
+           Joined
+           <span id="profileJoined">
+            Loading...
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main style="padding: 5px">
+     <nav class="mobile-navigation" id="mobileNav">
+      <div class="mobile-nav-container">
+       <a aria-label="Go to Home page" class="mobile-nav-btn" href="/">
+        <i class="bi bi-house">
+        </i>
+       </a>
+       <a aria-label="Go to About page" class="mobile-nav-btn" href="/about.html">
+        <i class="bi bi-person">
+        </i>
+       </a>
+       <a aria-label="Go to Expertise page" class="mobile-nav-btn" href="/expertise.html">
+        <i class="bi bi-gear">
+        </i>
+       </a>
+       <a aria-label="Go to Applications page" class="mobile-nav-btn" href="/applications.html">
+        <i class="bi bi-grid-3x3-gap-fill">
+        </i>
+       </a>
+       <a aria-label="Go to Ecosystems page" class="mobile-nav-btn" href="/ecosystems.html">
+        <i class="bi bi-diagram-3">
+        </i>
+       </a>
+       <a aria-label="Go to Projects page" class="mobile-nav-btn active" href="/projects.html">
+        <i class="bi bi-code-slash">
+        </i>
+       </a>
+       <a aria-label="Go to Packages page" class="mobile-nav-btn" href="/packages.html">
+        <i class="bi bi-box-seam">
+        </i>
+       </a>
+       <a aria-label="Go to Articles page" class="mobile-nav-btn" href="/articles.html">
+        <i class="bi bi-newspaper">
+        </i>
+       </a>
+       <a aria-label="Go to Github @aixandrolab" class="mobile-nav-btn" href="https://github.com/aixandrolab" target="_blank">
+        <i class="bi bi-github">
+        </i>
+       </a>
+      </div>
+     </nav>
+     <br/>
+     <div class="content-section" id="author-bio-section">
+      <div class="container">
+       <div class="author-bio card-custom" id="authorBio">
+        <div class="author-bio-text" id="authorBioText">
+         I'm a Full-Stack Python/Django Developer, I specialize in building robust and scalable web, CLI, GUI and android applications from the ground up. My skills spans from console applications and PyPI packages to complex web and REST APIs, GUI or android applications, with a focus on clean architecture, performance, and maintainability.
+        </div>
+        <div class="author-bio-meta" id="authorBioMeta">
+         <div class="author-bio-meta-item">
+          <i class="bi bi-github">
+          </i>
+          <span>
+           <a href="https://github.com/aixandrolab" target="_blank">
+            @aixandrolab
+           </a>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <br/>
+     <div class="description-item">
+      <p class="text-center" style="font-size: 20px">
+       A showcase of GitHub projects and open source contributions by Aixandrolab. From idea to architecture and complete implementation.
+      </p>
+     </div>
+     <div class="content-section" id="author-stats">
+      <div class="container">
+       <div class="author-stats-grid" id="statsGrid">
+       </div>
+      </div>
+     </div>
+     <div class="content-section" id="repositories">
+      <div class="container">
+       <h2 class="section-title">
+        GitHub Repositories
+       </h2>
+       <div class="text-end mb-3">
+        <a class="btn btn-outline-primary" href="https://github.com/aixandrolab?tab=repositories" target="_blank">
+         <i class="bi bi-github">
+         </i>
+         View All on GitHub
+         <span class="bi bi-arrow-right">
+         </span>
+        </a>
+       </div>
+       <div class="repo-grid" id="repos-container">
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/cli-todo-manager" target="_blank">
+            cli-todo-manager
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            1
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          CLI ToDo Manager is a powerful command-line task management application with support for priorities, deadlines, system notifications, and a beautiful colorful interface.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           cli-todo-manager
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           todo-manager
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Apr 30, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 30, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           1.6 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 30, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/cli-todo-manager.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/cli-todo-manager" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/github-explorer" target="_blank">
+            github-explorer
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            1
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          GitHub Explorer is a powerful CLI tool that provides comprehensive information about GitHub users and their repositories with a beautiful, color-coded interface.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           github
+          </span>
+          <span class="repo-topic">
+           github-explorer
+          </span>
+          <span class="repo-topic">
+           public-user-repos
+          </span>
+          <span class="repo-topic">
+           repositories
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Apr 28, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 30, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 28, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/github-explorer.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/github-explorer" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/cli-files-manager" target="_blank">
+            cli-files-manager
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A comprehensive, powerful command-line file management tool with advanced features for Linux.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           cli-files-manager
+          </span>
+          <span class="repo-topic">
+           cliapp
+          </span>
+          <span class="repo-topic">
+           console
+          </span>
+          <span class="repo-topic">
+           files-manager
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Apr 27, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 29, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           1.5 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 28, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/cli-files-manager.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/cli-files-manager" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/github-open-repos-copy-manager" target="_blank">
+            github-open-repos-copy-manager
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A powerful command-line tool to clone and archive all public repositories from any GitHub user. Features beautiful console output, progress tracking, and automated archiving.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           github
+          </span>
+          <span class="repo-topic">
+           github-repositories
+          </span>
+          <span class="repo-topic">
+           repository-manager
+          </span>
+          <span class="repo-topic">
+           utility
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Apr 27, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 29, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 27, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/github-open-repos-copy-manager.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/github-open-repos-copy-manager" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/calculator" target="_blank">
+            calculator
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A beautiful and functional calculator built with PyQt6, featuring a modern dark theme, keyboard shortcuts, and scientific notation support.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           calculator
+          </span>
+          <span class="repo-topic">
+           github
+          </span>
+          <span class="repo-topic">
+           pyqt6
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Nov 25, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 27, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           1.2 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 27, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/calculator.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/calculator" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/web_app_tg_bot" target="_blank">
+            web_app_tg_bot
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A Telegram bot that provides local and public IP addresses with web access URLs.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aiogram
+          </span>
+          <span class="repo-topic">
+           aiogram-bot
+          </span>
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           telegram
+          </span>
+          <span class="repo-topic">
+           telegrambot
+          </span>
+          <span class="repo-topic">
+           web-app-tg-bot
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Feb 10, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 22, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 22, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/web_app_tg_bot.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/web_app_tg_bot" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/aixandrolab" target="_blank">
+            aixandrolab
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Full-Stack Python/Django Developer
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           portfolio
+          </span>
+          <span class="repo-topic">
+           portfolio-github
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jan 12, 2021
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 22, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 22, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/aixandrolab.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/aixandrolab" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/snake" target="_blank">
+            snake
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A modern, visually enhanced remake of the classic Snake arcade game built with Python and Pygame. Features smooth controls, beautiful graphics, sound effects, and a persistent leaderboard system.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           pygame
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           saneksking
+          </span>
+          <span class="repo-topic">
+           snake
+          </span>
+          <span class="repo-topic">
+           snake-game
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Dec 24, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 20, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           5.5 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 20, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/snake.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/snake" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/outputdecorator" target="_blank">
+            outputdecorator
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Output Decorator is a lightweight Python library designed to enhance CLI application output with professional text decoration. It automatically adapts to your terminal width and provides simple methods for creating visually appealing formatted output.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           outputdecorator
+          </span>
+          <span class="repo-topic">
+           pypi
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           pypi-packages
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python-lib
+          </span>
+          <span class="repo-topic">
+           python-library
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           saneksking
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 21, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 20, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 20, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/outputdecorator.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/outputdecorator" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/githubinformer" target="_blank">
+            githubinformer
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          GitHub Informer is a simple yet effective tool that retrieves public repository information for any GitHub user. It provides an easy-to-use interface to access repository data including metadata, statistics, and other relevant information from GitHub's REST API.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           github
+          </span>
+          <span class="repo-topic">
+           github-informer
+          </span>
+          <span class="repo-topic">
+           pypi
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           pypi-packages
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python-lib
+          </span>
+          <span class="repo-topic">
+           python-library
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           saneksking
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 17, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 20, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 20, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/githubinformer.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/githubinformer" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/qr-codes-gen" target="_blank">
+            qr-codes-gen
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A simple command-line QR code generator for text and URLs.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           qr-code-generator
+          </span>
+          <span class="repo-topic">
+           qr-codes
+          </span>
+          <span class="repo-topic">
+           qr-codes-gen
+          </span>
+          <span class="repo-topic">
+           qrcode
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Apr 20, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 29, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 20, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/qr-codes-gen.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/qr-codes-gen" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/smart-guitar-tuner-android" target="_blank">
+            smart-guitar-tuner-android
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A professional guitar tuning application that allows you to create custom tunings and record your own string reference sounds. Perfect for guitarists using alternate tunings (Drop D, Open G, DADGAD, etc.) or wanting personalized practice tools.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           guitar-tuner
+          </span>
+          <span class="repo-topic">
+           kotlin
+          </span>
+          <span class="repo-topic">
+           kotlin-android
+          </span>
+          <span class="repo-topic">
+           smart-guitar-tuner-android
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #8b949e">
+            </span>
+            Kotlin
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Apr 08, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 22, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           7.9 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 20, 2026
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/smart-guitar-tuner-android.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/smart-guitar-tuner-android" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/smart-bug-tracker" target="_blank">
+            smart-bug-tracker
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart Bug Tracker is a comprehensive desktop application built with Python and PyQt5 that enables efficient bug tracking, test management, and project organization. It supports role-based workflows for both developers and testers within a version-controlled environment.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           bug-tracker
+          </span>
+          <span class="repo-topic">
+           desktop-app
+          </span>
+          <span class="repo-topic">
+           pyqt
+          </span>
+          <span class="repo-topic">
+           pyqt5
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           smart-bug-tracker
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Dec 08, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Mar 02, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.7 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Dec 16, 2025
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/smart-bug-tracker.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/smart-bug-tracker" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/aixandrolab.github.io" target="_blank">
+            aixandrolab.github.io
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          None
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #f1e05a">
+            </span>
+            JavaScript
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Mar 04, 2022
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Dec 15, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.6 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Dec 15, 2025
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/aixandrolab.github.io.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/aixandrolab.github.io" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/github-repos-downloader" target="_blank">
+            github-repos-downloader
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A powerful Python utility for automating comprehensive backups of your GitHub repositories and gists. This tool downloads your code as .zip archives for safe keeping, with parallel processing for speed and detailed reporting for insight.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           github
+          </span>
+          <span class="repo-topic">
+           github-repost-downloader
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Nov 06, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Dec 15, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           14.5 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Dec 15, 2025
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/github-repos-downloader.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/github-repos-downloader" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+          <span class="repo-badge bg-secondary">
+           Fork
+          </span>
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/github-repos-backup-tools" target="_blank">
+            github-repos-backup-tools
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Professional modular solution for automatic cloning and backup of GitHub repositories and gists with step-by-step execution pipeline
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Nov 19, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 10, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.2 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 19, 2025
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/github-repos-backup-tools.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/github-repos-backup-tools" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+          <span class="repo-badge bg-secondary">
+           Fork
+          </span>
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/smart-social-network" target="_blank">
+            smart-social-network
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Modern Django-Powered Social Network Platform. A comprehensive, feature-rich social networking platform built from the ground up with Django. Smart Social Network offers a complete suite of social features with real-time interactions.
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Nov 19, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 10, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           1.2 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 13, 2025
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/smart-social-network.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/smart-social-network" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/official_tg_bot" target="_blank">
+            official_tg_bot
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A sophisticated personal Telegram bot built with Python and aiogram that serves as an interactive portfolio and professional introduction for a Full-stack Python/Django Developer.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           official-tg-bot
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           telegram
+          </span>
+          <span class="repo-topic">
+           telegrambot
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Oct 27, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 15, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 06, 2025
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/official_tg_bot.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/official_tg_bot" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/get_ssh_ip" target="_blank">
+            get_ssh_ip
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Get SSH IP - Telegram Bot for get a command for connect to your SSH server
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           getsship
+          </span>
+          <span class="repo-topic">
+           github
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           saneksking
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 13, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 14, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 06, 2024
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/get_ssh_ip.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/get_ssh_ip" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/todo_tg_bot" target="_blank">
+            todo_tg_bot
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            6
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            6
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          ToDo TG Bot - simple and comfortable Telegram bot for keep your tasks for a day :).
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           github
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           saneksking
+          </span>
+          <span class="repo-topic">
+           todotgbot
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Oct 04, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 14, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.7 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 05, 2024
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/todo_tg_bot.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/todo_tg_bot" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/aixandrolab/todo_app_web_version" target="_blank">
+            todo_app_web_version
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            aixandrolab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          TODO App web - simple, comfortable and affordable web-application for kepting and compleating your tasks.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           aixandrolab
+          </span>
+          <span class="repo-topic">
+           django
+          </span>
+          <span class="repo-topic">
+           django-app
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           todo-app
+          </span>
+          <span class="repo-topic">
+           todo-app-web
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Oct 07, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Dec 15, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Oct 28, 2024
+          </div>
+          <div class="btn-group">
+           <a class="btn btn-outline-warning repo-action" href="repositories/todo_app_web_version.html">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            View
+           </a>
+           <a class="btn btn-outline-primary repo-action" href="https://github.com/aixandrolab/todo_app_web_version" target="_blank">
+            <i class="bi bi-box-arrow-up-right">
+            </i>
+            Github
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </main>
+    <div class="content-section">
+     <div class="container">
+      <h2 class="section-title text-center">
+       Connect &amp; Collaborate
+      </h2>
+      <div class="text-center mb-4">
+       <a class="btn btn-outline-primary m-1" href="https://github.com/aixandrolab" target="_blank">
+        GitHub
+       </a>
+       <a class="btn btn-outline-primary m-1" href="https://pypi.org/user/aixandrolab/" target="_blank">
+        PyPI
+       </a>
+       <a class="btn btn-outline-primary m-1" href="https://dev.to/aixandrolab" target="_blank">
+        Dev.to
+       </a>
+      </div>
+     </div>
+    </div>
+    <hr/>
+    <div class="content-section">
+     <div class="container text-center">
+      <footer>
+       <p>
+        ©
+        <span id="currentYear">
+        </span>
+        <a class="author-link" href="https://github.com/aixandrolab" target="_blank">
+         Aixandrolab
+        </a>
+        |
+        <a class="author-link" href="https://github.com/aixandrolab/aixandrolab.github.io" target="_blank">
+         v1.0.0
+        </a>
+       </p>
+      </footer>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="css/bootstrap/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="js/config.js">
+  </script>
+  <script src="js/particle-background.js">
+  </script>
+  <script src="js/scroll-manager.js">
+  </script>
+  <script src="js/animation-manager.js">
+  </script>
+  <script>
+   async function loadUserData() {
+      try {
+        const response = await fetch('/data/user.json');
+        const userData = await response.json();
+
+        document.getElementById('profileName').textContent = userData.name || 'Aixandrolab';
+
+        const joinedDate = new Date(userData.created_at).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long'
+        });
+        document.getElementById('profileJoined').textContent = joinedDate;
+
+        const statsGrid = document.getElementById('statsGrid');
+        statsGrid.innerHTML = `
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-code-square"></i></div>
+            <div class="author-stat-value">${userData.public_repos}</div>
+            <div class="author-stat-label">Repositories</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-star"></i></div>
+            <div class="author-stat-value">${await getTotalStars()}</div>
+            <div class="author-stat-label">Total Stars</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-diagram-2"></i></div>
+            <div class="author-stat-value">${await getTotalForks()}</div>
+            <div class="author-stat-label">Total Forks</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-people"></i></div>
+            <div class="author-stat-value">${userData.followers}</div>
+            <div class="author-stat-label">Followers</div>
+          </div>
+
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-clock-history"></i></div>
+            <div class="author-stat-value">5+</div>
+            <div class="author-stat-label">Years Experience</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-check2-circle"></i></div>
+            <div class="author-stat-value">100+</div>
+            <div class="author-stat-label">Projects Delivered</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-box"></i></div>
+            <div class="author-stat-value">1+</div>
+            <div class="author-stat-label">PYPI Packages</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-git"></i></div>
+            <div class="author-stat-value">2K+</div>
+            <div class="author-stat-label">Commits</div>
+          </div>
+        `;
+
+      } catch (error) {
+        console.error('Error loading user data:', error);
+      }
+    }
+
+   async function getTotalStars() {
+     try {
+       const response = await fetch('/data/repos.json');
+       const repos = await response.json();
+       return repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+     } catch {
+       return 'N/A';
+     }
+   }
+
+   async function getTotalForks() {
+     try {
+       const response = await fetch('/data/repos.json');
+       const repos = await response.json();
+       return repos.reduce((sum, repo) => sum + repo.forks_count, 0);
+     } catch {
+       return 'N/A';
+     }
+   }
+
+   function getTimeAgo(date) {
+     const seconds = Math.floor((new Date() - date) / 1000);
+
+     let interval = seconds / 31536000;
+     if (interval > 1) return Math.floor(interval) + ' years ago';
+
+     interval = seconds / 2592000;
+     if (interval > 1) return Math.floor(interval) + ' months ago';
+
+     interval = seconds / 86400;
+     if (interval > 1) return Math.floor(interval) + ' days ago';
+
+     interval = seconds / 3600;
+     if (interval > 1) return Math.floor(interval) + ' hours ago';
+
+     interval = seconds / 60;
+     if (interval > 1) return Math.floor(interval) + ' minutes ago';
+
+     return Math.floor(seconds) + ' seconds ago';
+   }
+
+   document.addEventListener('DOMContentLoaded', function () {
+     document.getElementById('currentYear').textContent = new Date().getFullYear();
+     loadUserData();
+
+     if (typeof ScrollManager !== 'undefined') {
+       new ScrollManager();
+     }
+   });
+  </script>
+ </body>
+</html>

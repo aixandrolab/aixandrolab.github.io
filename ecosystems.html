@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosystems · Aixandrolab</title>
+    <meta name="description" content="Cross‑platform ecosystems by Aixandrolab: ToDo apps.">
+    <meta name="author" content="Aixandrolab">
+    <link rel="canonical" href="https://aixandrolab.ru/ecosystems.html">
+    <link rel="author" href="https://github.com/aixandrolab">
+    <meta property="og:title" content="Ecosystems · Aixandrolab">
+    <meta property="og:description" content="One logic, multiple interfaces. Cross‑platform ecosystems.">
+    <meta name="theme-color" content="#0d1117">
+    <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+    <style>
+        .ecosystem-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background: rgba(13, 110, 253, 0.02);
+            border: 1px solid rgba(13, 110, 253, 0.2);
+            border-radius: 24px;
+            backdrop-filter: blur(0px);
+        }
+        .ecosystem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+        .feature-block {
+            background: rgba(13, 110, 253, 0.05);
+            border: 1px solid rgba(13, 110, 253, 0.15);
+            border-radius: 16px;
+            padding: 0.7rem 0.9rem;
+            transition: all 0.2s;
+        }
+        .feature-block:hover {
+            background: rgba(13, 110, 253, 0.08);
+            border-color: rgba(13, 110, 253, 0.35);
+        }
+        .feature-icon {
+            font-size: 1.1rem;
+            margin-right: 0.5rem;
+            color: #0d6efd;
+        }
+        .feature-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            color: #8ba3c7;
+            margin-bottom: 0.3rem;
+        }
+        .feature-content {
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #eef3ff;
+        }
+        .badge-tech {
+            background: rgba(13, 110, 253, 0.18);
+            color: #9bc0ff;
+            font-weight: 500;
+            font-size: 0.7rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 40px;
+        }
+        .section-title-decoration {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title-decoration:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20%;
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0d6efd, transparent);
+            border-radius: 4px;
+        }
+        .btn-outline-primary {
+            border-radius: 40px;
+            padding: 0.35rem 1.2rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+    <button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+    <div class="container"><div class="paper-container">
+
+        <header class="professional-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="main-profile-row">
+                        <div class="avatar-container">
+                            <div class="profile-avatar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" class="bi bi-incognito text-dark" viewBox="0 0 16 16">
+                                    <path d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <h1 class="name">Aixandrolab</h1>
+                            <p class="title text-primary">Cross-Platform Ecosystems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="mobile-navigation" id="mobileNav">
+            <div class="mobile-nav-container">
+                <a href="/" class="mobile-nav-btn" aria-label="Go to Home page"><i class="bi bi-house"></i></a>
+                <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page"><i class="bi bi-person"></i></a>
+                <a href="/expertise.html" class="mobile-nav-btn" aria-label="Go to Expertise page"><i class="bi bi-gear"></i></a>
+                <a href="/applications.html" class="mobile-nav-btn" aria-label="Go to Applications page"><i class="bi bi-grid-3x3-gap-fill"></i></a>
+                <a href="/ecosystems.html" class="mobile-nav-btn active" aria-label="Go to Ecosystems page"><i class="bi bi-diagram-3"></i></a>
+                <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page"><i class="bi bi-code-slash"></i></a>
+                <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page"><i class="bi bi-box-seam"></i></a>
+                <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page"><i class="bi bi-newspaper"></i></a>
+                <a target="_blank" href="https://github.com/aixandrolab" class="mobile-nav-btn" aria-label="Go to Github @aixandrolab"><i class="bi bi-github"></i></a>
+            </div>
+        </nav>
+
+        <main style="padding: 5px;"><br>
+            <div class="content-section"><div class="container">
+
+                <div class="text-center mb-5">
+                    <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                        <i class="bi bi-diagram-3 text-primary" style="font-size: 2rem;"></i>
+                        <h2 class="section-title section-title-decoration mb-0" style="font-size: 2rem;">Ecosystems</h2>
+                    </div>
+                    <p class="lead text-muted" style="max-width: 700px; margin: 0 auto;">One logic, multiple interfaces. Cross‑platform ecosystems built from a single idea.</p>
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card-custom card h-100 ecosystem-card">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="p-2 rounded-3" style="background: rgba(13,110,253,0.15);"><i class="bi bi-shield-lock text-primary" style="font-size: 1.8rem;"></i></div>
+                                    <h4 class="card-title text-primary mb-0">ToDo</h4>
+                                </div>
+                                <p class="small fw-semibold text-light-emphasis mb-3">ToDO list apps · One Place == All Tasks · Cross‑Platform</p>
+
+                                <div class="feature-block mb-2">
+                                    <div class="feature-title"><i class="bi bi-code-slash feature-icon"></i> Languages</div>
+                                    <div class="feature-content">Python</div>
+                                </div>
+                                <div class="feature-block mb-2">
+                                    <div class="feature-title"><i class="bi bi-display feature-icon"></i> Interfaces</div>
+                                    <div class="feature-content">CLI · Telegram · Web</div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <a href="ecosystems/todo-ecosystem.html" class="btn btn-sm btn-outline-primary">Explore →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-custom card mt-5 mb-4" style="background: rgba(13,110,253,0.03); border: 1px solid rgba(13,110,253,0.2); border-radius: 28px;">
+                    <div class="card-body p-4 p-md-5 text-center">
+                        <i class="bi bi-boxes text-primary" style="font-size: 2.5rem;"></i>
+                        <h3 class="mt-2 mb-3">Cross‑Platform</h3>
+                        <p class="text-muted mx-auto" style="max-width: 680px;">Every ecosystem follows the same architectural: one core logic, multiple native interfaces for CLI, Desktop, Web, and Mobile — designed for performance and consistency.</p>
+                        <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                            <span class="badge bg-dark text-light px-3 py-2 rounded-pill"><i class="bi bi-window"></i> Desktop</span>
+                            <span class="badge bg-dark text-light px-3 py-2 rounded-pill"><i class="bi bi-phone"></i> Android</span>
+                            <span class="badge bg-dark text-light px-3 py-2 rounded-pill"><i class="bi bi-globe"></i> Web</span>
+                            <span class="badge bg-dark text-light px-3 py-2 rounded-pill"><i class="bi bi-terminal"></i> CLI</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div></div>
+        </main>
+
+        <div class="content-section">
+            <div class="container">
+                <h2 class="section-title text-center">Connect & Collaborate</h2>
+                <div class="text-center mb-4">
+                    <a target="_blank" href="https://github.com/aixandrolab" class="btn btn-outline-primary m-1">GitHub</a>
+                    <a target="_blank" href="https://pypi.org/user/aixandrolab/" class="btn btn-outline-primary m-1">PyPI</a>
+                    <a target="_blank" href="https://dev.to/aixandrolab" class="btn btn-outline-primary m-1">Dev.to</a>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="content-section">
+            <div class="container text-center">
+                <footer>
+                    <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/aixandrolab">Aixandrolab</a> | <a target="_blank" class="author-link" href="https://github.com/aixandrolab/aixandrolab.github.io">v1.0.0</a></p>
+                </footer>
+            </div>
+        </div>
+
+    </div></div>
+    <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/particle-background.js"></script>
+    <script src="js/scroll-manager.js"></script>
+    <script src="js/animation-manager.js"></script>
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();document.addEventListener('DOMContentLoaded',function(){if(typeof ScrollManager!=='undefined')new ScrollManager();});</script>
+</body>
+</html>
