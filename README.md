@@ -1,4 +1,4 @@
-# Aixandrolab · Automated Technical Portfolio <sup>v1.0.2</sup>
+# Aixandrolab · Automated Technical Portfolio <sup>v1.0.3</sup>
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-aixandrolab.ru-blue?style=for-the-badge&logo=github)](https://aixandrolab.ru)
 [![GitHub license](https://img.shields.io/github/license/aixandrolab/aixandrolab.github.io)](https://github.com/aixandrolab/aixandrolab.github.io/blob/main/LICENSE)
