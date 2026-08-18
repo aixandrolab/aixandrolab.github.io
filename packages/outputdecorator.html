@@ -389,25 +389,25 @@
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">output_decorator</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringDecorator</span>
 
 <span class="c1"># Center text with automatic terminal width</span>
-<span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">print_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">'Python'</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">'*'</span><span class="p">,</span> <span class="n">print_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Output: ************************************ Python ***********************************</span>
 
 <span class="c1"># Get decorated string without printing</span>
-<span class="n">decorated</span> <span class="o">=</span> <span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">print_flag</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">decorated</span> <span class="o">=</span> <span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">'Python'</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">'*'</span><span class="p">,</span> <span class="n">print_flag</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">decorated</span><span class="p">)</span>  <span class="c1"># Same output as above</span>
 
 <span class="c1"># Create framed text with different border styles</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">StringDecorator</span><span class="o">.</span><span class="n">framed_decorate</span><span class="p">(</span>
-    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> 
-    <span class="n">top_symbol</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> 
-    <span class="n">bottom_symbol</span><span class="o">=</span><span class="s1">&#39;-&#39;</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">'Python'</span><span class="p">,</span> 
+    <span class="n">top_symbol</span><span class="o">=</span><span class="s1">'*'</span><span class="p">,</span> 
+    <span class="n">bottom_symbol</span><span class="o">=</span><span class="s1">'-'</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="sd">******</span>
 <span class="sd">Python</span>
 <span class="sd">------</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 
 <hr />
@@ -441,21 +441,21 @@
 <hr />
 <h2 id="examples">🔍 Examples</h2>
 <h3 id="creating-a-banner">Creating a banner</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;WELCOME&#39;</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">'WELCOME'</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">'='</span><span class="p">)</span>
 <span class="c1"># =================================== WELCOME ====================================</span>
 </code></pre></div>
 
 <h3 id="empty-line-separator">Empty line separator</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">StringDecorator</span><span class="o">.</span><span class="n">string_decorate</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s1">'-'</span><span class="p">)</span>
 <span class="c1"># --------------------------------------------------------------------------------</span>
 </code></pre></div>
 
 <h3 id="different-frame-styles">Different frame styles</h3>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Warning box</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">StringDecorator</span><span class="o">.</span><span class="n">framed_decorate</span><span class="p">(</span><span class="s1">&#39;⚠️  WARNING  ⚠️&#39;</span><span class="p">,</span> <span class="n">top_symbol</span><span class="o">=</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="n">bottom_symbol</span><span class="o">=</span><span class="s1">&#39;!&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">StringDecorator</span><span class="o">.</span><span class="n">framed_decorate</span><span class="p">(</span><span class="s1">'⚠️  WARNING  ⚠️'</span><span class="p">,</span> <span class="n">top_symbol</span><span class="o">=</span><span class="s1">'!'</span><span class="p">,</span> <span class="n">bottom_symbol</span><span class="o">=</span><span class="s1">'!'</span><span class="p">))</span>
 
 <span class="c1"># Success message</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">StringDecorator</span><span class="o">.</span><span class="n">framed_decorate</span><span class="p">(</span><span class="s1">&#39;✓ Success!&#39;</span><span class="p">,</span> <span class="n">top_symbol</span><span class="o">=</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">bottom_symbol</span><span class="o">=</span><span class="s1">&#39;=&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">StringDecorator</span><span class="o">.</span><span class="n">framed_decorate</span><span class="p">(</span><span class="s1">'✓ Success!'</span><span class="p">,</span> <span class="n">top_symbol</span><span class="o">=</span><span class="s1">'='</span><span class="p">,</span> <span class="n">bottom_symbol</span><span class="o">=</span><span class="s1">'='</span><span class="p">))</span>
 </code></pre></div>
 
 <hr />
