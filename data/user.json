@@ -18,7 +18,7 @@
   "type": "User",
   "user_view_type": "public",
   "site_admin": false,
-  "name": "Alexander Suvorov ",
+  "name": "Alexander Suvorov Jr.",
   "company": null,
   "blog": "https://aixandrolab.ru",
   "location": null,
@@ -31,6 +31,6 @@
   "followers": 4,
   "following": 2,
   "created_at": "2020-04-17T12:07:44Z",
-  "updated_at": "2026-07-31T04:48:56Z",
-  "fetched_at": "2026-08-28T14:56:57.249560"
+  "updated_at": "2026-08-29T03:34:50Z",
+  "fetched_at": "2026-08-29T09:46:30.127148"
 }
